@@ -7,6 +7,10 @@
 //
 
 #import "ImagesTableViewController.h"
+#import "DataSource.h"
+#import "Media.h"
+#import "User.h"
+#import "Comment.h"
 
 @interface ImagesTableViewController ()
 
@@ -14,16 +18,20 @@
 
 @implementation ImagesTableViewController
 
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    for (int i = 1; i <= 10; i++) {
-        NSString *imagesName = [NSString stringWithFormat:@"%d.jpg", i];
-        UIImage *image = [UIImage imageNamed:imagesName];
-        if (image) {
-            [self.images addObject:image];
-        }
-    }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
 }
@@ -35,8 +43,10 @@
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 300;
-    UIImage *image = self.images [indexPath.row];
+
+    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    UIImage *image = item.image;
+    
     return (CGRectGetWidth(self.view.frame) / image.size.width  * image.size.height);
 }
 
@@ -45,20 +55,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return self.images.count;
-}
-
-
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        self.images = [NSMutableArray array];
-        
-    }
-    return self;
+    return [DataSource sharedInstance].mediaItems.count;
 }
 
 
@@ -86,8 +83,8 @@
         [cell.contentView addSubview:imageView];
     }
     
-    UIImage *image = self.images[indexPath.row];
-    imageView.image = image;
+    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    imageView.image = item.image;
     
     return cell;
 }
