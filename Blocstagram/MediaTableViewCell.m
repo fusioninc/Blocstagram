@@ -24,8 +24,8 @@ static UIFont *boldFont;
 static UIColor *usernameLabelGray;
 static UIColor *commentLabelGray;
 static UIColor *linkColor;
-static NSParagraphStyle *paragraphStyle;
 static UIColor *firstCommentStringColor;
+static NSParagraphStyle *paragraphStyle;
 
 @implementation MediaTableViewCell
 
@@ -109,6 +109,7 @@ static UIColor *firstCommentStringColor;
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         [oneCommentString addAttribute:NSFontAttributeName value:linkColor range:usernameRange];
      
+        
         for (Comment *frstComment in self.mediaItem.comments) {
             NSRange firstCommentStringRange = [comment.text rangeOfString:self.mediaItem.comments[1]];
             NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:firstCommentStringRange attributes:@{NSFontAttributeName : firstCommentStringColor}];
