@@ -109,10 +109,13 @@ static NSParagraphStyle *paragraphStyle;
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         [oneCommentString addAttribute:NSFontAttributeName value:linkColor range:usernameRange];
      
-        
-        for (Comment *frstComment in self.mediaItem.comments) {
-            NSRange firstCommentStringRange = [comment.text rangeOfString:self.mediaItem.comments[1]];
-            NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:firstCommentStringRange attributes:@{NSFontAttributeName : firstCommentStringColor}];
+        for (Comment *comment in self.mediaItem.comments) {
+            NSString *baseStringComment = [NSString stringWithFormat:@"%@", comment.text];
+            
+            NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:baseStringComment attributes:@{NSFontAttributeName : firstCommentStringColor}];
+            
+            NSRange firstCommentStringRange = [baseStringComment rangeOfString:self.mediaItem.comments[1]];
+            [firstCommentString addAttribute:NSFontAttributeName value:firstCommentStringColor range:firstCommentStringRange];
         }
     }
     
