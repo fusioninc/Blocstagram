@@ -112,10 +112,10 @@ static NSParagraphStyle *paragraphStyle;
         for (Comment *comment in self.mediaItem.comments) {
             NSString *baseStringComment = [NSString stringWithFormat:@"%@", comment.text];
             
-            NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:baseStringComment attributes:@{NSFontAttributeName : firstCommentStringColor}];
+            NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:baseStringComment attributes:@{NSForegroundColorAttributeName : firstCommentStringColor}];
             
             NSRange firstCommentStringRange = [baseStringComment rangeOfString:self.mediaItem.comments[1]];
-            [firstCommentString addAttribute:NSFontAttributeName value:firstCommentStringColor range:firstCommentStringRange];
+            [firstCommentString addAttribute:NSFontAttributeName value:nil range:firstCommentStringRange];
         }
     }
     
