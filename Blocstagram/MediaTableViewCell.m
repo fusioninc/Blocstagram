@@ -64,6 +64,8 @@ static NSParagraphStyle *paragraphStyle;
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
             [self.contentView addSubview:view];
         }
+        
+        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -107,19 +109,14 @@ static NSParagraphStyle *paragraphStyle;
         
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
-        [oneCommentString addAttribute:NSFontAttributeName value:linkColor range:usernameRange];
-     
-        for (Comment *comment in self.mediaItem.comments) {
-            NSString *baseStringComment = [NSString stringWithFormat:@"%@", comment.text];
-            
-            Comment *comment = (Comment *)self.mediaItem.comments[0];
-            NSString *commentString = comment.text;
-    
-            NSMutableAttributedString *firstCommentString = [[NSMutableAttributedString alloc] initWithString:baseStringComment attributes:@{NSBackgroundColorAttributeName : firstCommentStringColor}];
-            
-            NSRange firstCommentStringRange = [baseStringComment rangeOfString:commentString];
-            [firstCommentString addAttribute:NSFontAttributeName value:firstCommentStringColor range:firstCommentStringRange];
+        [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
+        
+        if (comment == [self.mediaItem.comments firstObject]) {
+            NSRange commentRange = [baseString rangeOfString:comment.text];
+            [oneCommentString addAttribute:NSForegroundColorAttributeName value:firstCommentStringColor range:commentRange];
         }
+        
+        [commentString appendAttributedString:oneCommentString];
     }
     
     return commentString;
