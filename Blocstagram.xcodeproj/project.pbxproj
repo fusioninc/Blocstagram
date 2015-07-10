@@ -27,6 +27,7 @@
 		31609BA21B4A35EA00232A24 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA11B4A35EA00232A24 /* Media.m */; };
 		31609BA51B4A37E500232A24 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA41B4A37E500232A24 /* Comment.m */; };
 		31609BA81B4A38C700232A24 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA71B4A38C700232A24 /* DataSource.m */; };
+		31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		31609BA41B4A37E500232A24 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		31609BA61B4A38C700232A24 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		31609BA71B4A38C700232A24 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		31609BAF1B4B2A0500232A24 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				31609BA41B4A37E500232A24 /* Comment.m */,
 				31609BA61B4A38C700232A24 /* DataSource.h */,
 				31609BA71B4A38C700232A24 /* DataSource.m */,
+				31609BAF1B4B2A0500232A24 /* MediaTableViewCell.h */,
+				31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */,
 				31609B661B45E19B00232A24 /* Images.xcassets */,
 				31609B681B45E19B00232A24 /* LaunchScreen.xib */,
 				31609B591B45E19B00232A24 /* Supporting Files */,
@@ -285,6 +290,7 @@
 			files = (
 				31609B9F1B4A34CE00232A24 /* User.m in Sources */,
 				31609BA51B4A37E500232A24 /* Comment.m in Sources */,
+				31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */,
 				31609BA21B4A35EA00232A24 /* Media.m in Sources */,
 				31609B5F1B45E19B00232A24 /* AppDelegate.m in Sources */,
 				31609BA81B4A38C700232A24 /* DataSource.m in Sources */,
