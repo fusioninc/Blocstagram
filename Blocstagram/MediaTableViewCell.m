@@ -18,10 +18,7 @@
 @property (nonatomic, strong) UILabel *commentLabel;
 
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
-<<<<<<< HEAD
 @property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
-=======
->>>>>>> deleteImage
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 
@@ -77,11 +74,11 @@ static NSParagraphStyle *paragraphStyle;
         
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel);
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView(==100)]|" options:kNilOptions metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView(=100)][_usernameAndCaptionLabel][_commentLabel]"
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel]"
                                                                                  options:kNilOptions
                                                                                  metrics:nil
                                                                                    views:viewDictionary]];
@@ -168,6 +165,7 @@ static NSParagraphStyle *paragraphStyle;
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
+
         
         if (comment == [self.mediaItem.comments firstObject]) {
             NSRange commentRange = [baseString rangeOfString:comment.text];
@@ -195,10 +193,6 @@ static NSParagraphStyle *paragraphStyle;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
     self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
     self.imageWidthConstraint.constant = self.mediaItem.image.size.width / self.mediaItem.image.size.height * CGRectGetHeight(self.contentView.bounds);
-    
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-    CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
-    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height == 0 ? 0 : usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height == 0 ? 0 : commentLabelSize.height + 20;
