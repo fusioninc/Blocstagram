@@ -56,14 +56,17 @@
 }
 
 - (void) insertObject:(Media *)object inMediaItemsAtIndex:(NSUInteger)index {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     [_mediaItems insertObject:object atIndex:index];
 }
 
 - (void) removeObjectFromMediaItemsAtIndex:(NSUInteger)index {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     [_mediaItems removeObjectAtIndex:index];
 }
 
 - (void) replaceObjectInMediaItemsAtIndex:(NSUInteger)index withObject:(id)object {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     [_mediaItems replaceObjectAtIndex:index withObject:object];
 }
 
@@ -153,7 +156,7 @@
 
 - (void) addMediaItem:(Media *)item {
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
-    [mutableArrayWithKVO addObject:item];
+    [mutableArrayWithKVO insertObject:item atIndex:0];
 }
 
 

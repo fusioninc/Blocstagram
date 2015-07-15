@@ -19,7 +19,6 @@
 
 @implementation ImagesTableViewController
 
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -142,7 +141,6 @@
         Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
         [[DataSource sharedInstance] deleteMediaItem:item];
         [[DataSource sharedInstance] addMediaItem:item];
-        
     }
 }
 
