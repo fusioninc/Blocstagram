@@ -28,6 +28,7 @@
 		31609BA51B4A37E500232A24 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA41B4A37E500232A24 /* Comment.m */; };
 		31609BA81B4A38C700232A24 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA71B4A38C700232A24 /* DataSource.m */; };
 		31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */; };
+		317E4D2D1B588AF500A536F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E4D2C1B588AF500A536F5 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		31609BA71B4A38C700232A24 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		31609BAF1B4B2A0500232A24 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		317E4D2B1B588AF500A536F5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		317E4D2C1B588AF500A536F5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				31609BA41B4A37E500232A24 /* Comment.m */,
 				31609BA61B4A38C700232A24 /* DataSource.h */,
 				31609BA71B4A38C700232A24 /* DataSource.m */,
+				317E4D2B1B588AF500A536F5 /* LoginViewController.h */,
+				317E4D2C1B588AF500A536F5 /* LoginViewController.m */,
 				31609BAF1B4B2A0500232A24 /* MediaTableViewCell.h */,
 				31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */,
 				31609B661B45E19B00232A24 /* Images.xcassets */,
@@ -293,6 +298,7 @@
 				31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */,
 				31609BA21B4A35EA00232A24 /* Media.m in Sources */,
 				31609B5F1B45E19B00232A24 /* AppDelegate.m in Sources */,
+				317E4D2D1B588AF500A536F5 /* LoginViewController.m in Sources */,
 				31609BA81B4A38C700232A24 /* DataSource.m in Sources */,
 				31609B5C1B45E19B00232A24 /* main.m in Sources */,
 				31609B9C1B45E55D00232A24 /* ImagesTableViewController.m in Sources */,
