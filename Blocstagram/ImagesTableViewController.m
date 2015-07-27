@@ -39,10 +39,20 @@
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
+    [self.tableView reloadData];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
 }
 
-- (void) dealloc
-{
+-(void)refreshData {
+    //reload table & remove refreshing image
+    UITableViewController *tableViewController = [[UITableViewController alloc] init];
+    tableViewController.tableView = self.tableView;
+    [self.tableView reloadData];
+    [tableViewController.refreshControl endRefreshing];
+}
+
+- (void) dealloc {
     [[DataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
 }
 
