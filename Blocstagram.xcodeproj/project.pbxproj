@@ -29,6 +29,7 @@
 		31609BA81B4A38C700232A24 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BA71B4A38C700232A24 /* DataSource.m */; };
 		31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */; };
 		317E4D2D1B588AF500A536F5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317E4D2C1B588AF500A536F5 /* LoginViewController.m */; };
+		31FA82161B67080B00DC4627 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FA82151B67080B00DC4627 /* MediaFullScreenViewController.m */; };
 		4EBB837DF33CE964FC73FD0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644E9F252E83B4B2AD841AD0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 		317E4D2B1B588AF500A536F5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		317E4D2C1B588AF500A536F5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		31FA82141B67080B00DC4627 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		31FA82151B67080B00DC4627 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		644E9F252E83B4B2AD841AD0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386E7C63E93692D5B4DFFD3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +153,8 @@
 				317E4D2C1B588AF500A536F5 /* LoginViewController.m */,
 				31609BAF1B4B2A0500232A24 /* MediaTableViewCell.h */,
 				31609BB01B4B2A0500232A24 /* MediaTableViewCell.m */,
+				31FA82141B67080B00DC4627 /* MediaFullScreenViewController.h */,
+				31FA82151B67080B00DC4627 /* MediaFullScreenViewController.m */,
 				31609B661B45E19B00232A24 /* Images.xcassets */,
 				31609B681B45E19B00232A24 /* LaunchScreen.xib */,
 				31609B591B45E19B00232A24 /* Supporting Files */,
@@ -352,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FA82161B67080B00DC4627 /* MediaFullScreenViewController.m in Sources */,
 				31609B9F1B4A34CE00232A24 /* User.m in Sources */,
 				31609BA51B4A37E500232A24 /* Comment.m in Sources */,
 				31609BB11B4B2A0500232A24 /* MediaTableViewCell.m in Sources */,
