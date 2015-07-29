@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong)UITapGestureRecognizer *tap;
 @property (nonatomic, strong)UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong)UIBarButtonItem *shareButton;
+
 
 @end
 
@@ -59,6 +61,16 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    // Share Button
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonFired:)];
+//    [shareButton addTarget:self action:@selector(shareButtonFired:) forControlEvents:UIControlEventTouchDown];
+    [shareButton setTitle:@"Share"];
+//    [self.scrollView addSubview:shareButton];
+    
+    self.navigationItem.rightBarButtonItem = shareButton;
+//    [self.scrollView addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button]|" options:NSLayoutFormatAlignAllRight metrics:nil views:self.scrollView]];
+    
 }
 
 - (void) didReceiveMemoryWarning {
@@ -146,6 +158,14 @@
         // #9
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+- (void) shareButtonFired:(UITapGestureRecognizer *)sender {
+    NSMutableArray *imageToShare = [NSMutableArray array];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:imageToShare applicationActivities:nil];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 @end
