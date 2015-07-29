@@ -63,7 +63,7 @@
     [self.scrollView addGestureRecognizer:self.doubleTap];
     
     // Share Button
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonFired:)];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonFired:)];
 //    [shareButton addTarget:self action:@selector(shareButtonFired:) forControlEvents:UIControlEventTouchDown];
     [shareButton setTitle:@"Share"];
 //    [self.scrollView addSubview:shareButton];
@@ -160,7 +160,7 @@
     }
 }
 
-- (void) shareButtonFired:(UITapGestureRecognizer *)sender {
+- (void) shareButtonFired:(id)sender {
     NSMutableArray *imageToShare = [NSMutableArray array];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:imageToShare applicationActivities:nil];
