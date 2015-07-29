@@ -53,7 +53,7 @@
 #pragma mark - NSCoding
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     self = [super init];
     
     if (self) {
@@ -71,7 +71,7 @@
 
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     [aCoder encodeObject:self.idNumber forKey:NSStringFromSelector(@selector(idNumber))];
     [aCoder encodeObject:self.user forKey:NSStringFromSelector(@selector(user))];
     [aCoder encodeObject:self.mediaURL forKey:NSStringFromSelector(@selector(mediaURL))];
