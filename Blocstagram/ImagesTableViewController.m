@@ -39,17 +39,19 @@
     
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
-    [self.tableView reloadData];
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self refreshData];
     
 }
 
 -(void)refreshData {
     //reload table & remove refreshing image
-    UITableViewController *tableViewController = [[UITableViewController alloc] init];
-    tableViewController.tableView = self.tableView;
-    [self.tableView reloadData];
-    [tableViewController.refreshControl endRefreshing];
+    if(!self.refreshControl.isRefreshing) {
+        [self.refreshControl beginRefreshing];
+    }
+    
+    [[DataSource sharedInstance] requstNewItemsWithCompletionHandler:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 - (void) dealloc {
@@ -163,9 +165,10 @@
 #pragma mark - RefreshDidFire
 
 - (void) refreshControlDidFire:(UIRefreshControl *) sender {
-    [[DataSource sharedInstance] requstNewItemsWithCompletionHandler:^(NSError *error) {
-        [sender endRefreshing];
-    }];
+//    [[DataSource sharedInstance] requstNewItemsWithCompletionHandler:^(NSError *error) {
+//        [sender endRefreshing];
+//    }];
+    [self refreshData];
 }
 
 
@@ -199,4 +202,33 @@
     }
 }
 
+<<<<<<< Updated upstream
+=======
+#pragma mark - MediaTableViewCellDelegate
+
+- (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+    MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWIthMedia:cell.mediaItem];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:fullScreenVC];
+    
+    [self presentViewController:navCon animated:YES completion:nil];
+}
+
+- (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
+    NSMutableArray *itemToShare = [NSMutableArray array];
+    
+    if (cell.mediaItem.caption.length > 0) {
+        [itemToShare addObject:cell.mediaItem.caption];
+    }
+    
+    if (cell.mediaItem.image) {
+        [itemToShare addObject:cell.mediaItem.image];
+    }
+    
+    if (itemToShare.count > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemToShare applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
+
+>>>>>>> Stashed changes
 @end
