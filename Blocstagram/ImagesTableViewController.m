@@ -203,23 +203,16 @@
     }
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> 6989dc06c006259f2635149e3c7183519529f78c
 #pragma mark - MediaTableViewCellDelegate
 
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
     MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWIthMedia:cell.mediaItem];
-<<<<<<< HEAD
     
     [self presentViewController:fullScreenVC animated:YES completion:nil];
-=======
+
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:fullScreenVC];
     
     [self presentViewController:navCon animated:YES completion:nil];
->>>>>>> 6989dc06c006259f2635149e3c7183519529f78c
 }
 
 - (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
@@ -239,8 +232,4 @@
     }
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> 6989dc06c006259f2635149e3c7183519529f78c
 @end
