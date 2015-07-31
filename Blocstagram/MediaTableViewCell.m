@@ -220,7 +220,10 @@ static NSParagraphStyle *paragraphStyle;
     if(self.mediaItem.image) {
         self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
         self.imageWidthConstraint.constant = self.mediaItem.image.size.width / self.mediaItem.image.size.height * CGRectGetHeight(self.contentView.bounds);
-    } 
+    } else if (self.mediaItem.image == nil) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height == 1;
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.width == 1;
+    }
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height == 0 ? 0 : usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height == 0 ? 0 : commentLabelSize.height + 20;
