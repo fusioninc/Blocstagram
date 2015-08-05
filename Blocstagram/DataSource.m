@@ -303,7 +303,6 @@
     return dataPath;
 }
 
-#pragma mark - Liking Media Items
 
 #pragma mark - Liking Media Items
 
