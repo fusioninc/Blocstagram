@@ -52,6 +52,7 @@
     
     [[DataSource sharedInstance] requstNewItemsWithCompletionHandler:^(NSError *error) {
         [self.refreshControl endRefreshing];
+        [self fetchImagesFromVisibleCell];
     }];
 }
 
@@ -65,12 +66,12 @@
 }
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
-        [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
-    }
+    
 }
 
+- (void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"%s - %f", __PRETTY_FUNCTION__, scrollView.decelerationRate);
+}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         
@@ -197,7 +198,23 @@
 
 // #4
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    if(scrollView.decelerating) {
+        [self fetchImagesFromVisibleCell];
+    }
+
     [self infiniteScrollIfNecessary];
+}
+
+- (void)fetchImagesFromVisibleCell {
+    NSArray *arrayOfPath = [self.tableView indexPathsForVisibleRows];
+    for (NSIndexPath *indexPath in arrayOfPath) {
+        Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+            [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+        }
+    }
 }
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -235,6 +252,19 @@
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemToShare applicationActivities:nil];
         [self presentViewController:activityVC animated:YES completion:nil];
     }
+}
+
+- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell {
+    Media *item = cell.mediaItem;
+    
+    [[DataSource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
+        if (cell.mediaItem == item) {
+            cell.mediaItem = item;
+        }
+    }];
+    
+    cell.mediaItem = item;
+    
 }
 
 @end
