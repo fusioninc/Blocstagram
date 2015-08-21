@@ -12,7 +12,7 @@
 
 @protocol CropImageViewControllerDelegate <NSObject>
 
-- (void) cropControllerFinishWithImage:(UIImage *)croppedImage;
+- (void) cropControllerFinishedWithImage:(UIImage *)croppedImage;
 
 @end
 

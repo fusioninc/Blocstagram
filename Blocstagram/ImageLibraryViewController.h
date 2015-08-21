@@ -12,7 +12,7 @@
 
 @protocol ImageLibraryViewControllerDelegate <NSObject>
 
-- (void)ImageLibraryViewController:(ImageLibraryViewController *)ImageLibraryViewController didCompleteWithImage:(UIImage *)image;
+- (void) imageLibraryViewController:(ImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image;
 
 @end
 
