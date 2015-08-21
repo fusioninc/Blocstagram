@@ -50,7 +50,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void) cancelPressed:(UIBarButtonItem *)sender {
     
-    [self.delegate ImageLibraryViewController:self didCompleteWithImage:nil];
+    [self.delegate imageLibraryViewController:self didCompleteWithImage:nil];
     
 }
 
@@ -113,16 +113,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
-    return self.result.count;
-    
-}
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return self.result.count;
 }
 
 /*

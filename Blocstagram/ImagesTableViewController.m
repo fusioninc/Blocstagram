@@ -278,7 +278,7 @@
 #pragma mark - MediaTableViewCellDelegate
 
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
-    MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWIthMedia:cell.mediaItem];
+    MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc]initWithMedia:cell.mediaItem];
 
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:fullScreenVC];
     
