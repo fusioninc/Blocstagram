@@ -46,6 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithImage:cancelImage style:UIBarButtonItemStyleDone target:self action:@selector(cancelPressed:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
+    [self.collectionView reloadData];
 }
 
 - (void) cancelPressed:(UIBarButtonItem *)sender {
@@ -91,7 +92,6 @@ static NSString * const reuseIdentifier = @"Cell";
             if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self loadAssets];
-                    [self.collectionView reloadData];
                 });
             }
         }];
